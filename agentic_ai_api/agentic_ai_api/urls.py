@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from ninja import NinjaAPI
-
+from orders import urls
+from django.urls import include
 api = NinjaAPI()
 
 
@@ -12,5 +13,11 @@ def add(request, a: int, b: int):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", api.urls),
+    path("login/", api.urls),
+    path("logout/", api.urls),
+
+    path("register/", api.urls),
+    path('orders/', include('orders.urls'))
+
+
 ]
