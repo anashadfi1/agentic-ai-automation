@@ -3,13 +3,13 @@ from ninja import NinjaAPI, Router
 from .models import OrderModel
 from .auth_api import router as auth_router
 
-api = NinjaAPI(csrf=True)
+api = NinjaAPI()
 
 # Create the orders router
 router = Router()
 
 # Register the authentication router
-api.add_router("/auth/", auth_router)
+api.add_router("/login/", auth_router)
 
 
 @router.get("/orders/")
